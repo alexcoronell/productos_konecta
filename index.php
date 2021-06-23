@@ -1,5 +1,5 @@
 <?php
-// Redireccionar a la vista de login
+// Redireccionar a la vista de Productos
 
 header('location: vistas/productos.php');
 

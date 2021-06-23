@@ -1,6 +1,3 @@
-<footer class="Footer fixed-bottom text-center">
-    <h5 class="textoSecondaryColor">Desarrollado por Alexander Coronell</h5>
-</footer>
 </div>
 
 

@@ -3,9 +3,9 @@ require 'header.php';
 ?>
 
 <div class="container mt-4">
-    <h2 class="text-center">Agregar categorias</h2>
     <div class="row">
-        <div class="col">
+        <div class="col-12 mb-3">
+        <h2 class="text-center">Agregar categorias</h2>
         <form name="formulario" id="formulario" method="POST">
             <input type="hidden" name="id_categoria" id="id_categoria">
             <div class="mb-3 form-group">
@@ -15,6 +15,16 @@ require 'header.php';
             <button type="submit" class="btn btn-primary" id="btnGuardar">Guardar</button>
             <button type="button" class="btn btn-light" id="btnCancelar" onclick="limpiar()">Cancelar</button>
             </form>
+        </div>
+        <hr>
+        <div class="col-12">
+        <h2 class="text-center">Listado de categorias</h2>
+            <table class="mt-4 tabla-md table-striped table-bordered table-condensed table-hover" id="tbllistado">
+                <thead>
+                    <th>Id.</th>
+                    <th>Nombre de Categoría</th>
+                </thead>
+            </table>
         </div>
     </div>
 </div>

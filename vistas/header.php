@@ -54,7 +54,7 @@ if (strlen(session_id()) < 1)
           <a class="nav-link" href="agregarProductos.php">Agregar Productos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="agregar_categorias.php">Agregar Categorías</a>
+          <a class="nav-link" href="categorias.php">Categorías</a>
         </li>
       </ul>
     </div>
