@@ -12,38 +12,24 @@ class Producto
     }
 
     // Método para insertar registros
-    public function insertar(
-        $nombre_producto,
-        $referencia,
-        $precio,
-        $peso,
-        $id_categoria,
-        $stock
-        )
+    public function insertar($nombre_producto, $referencia, $precio, $peso, $id_categoria, $stock)
     {
         $sql = "INSERT INTO producto (nombre_producto, referencia, precio, peso, id_categoria, stock)
         VALUES ('$nombre_producto', '$referencia', '$precio', '$peso', '$id_categoria', '$stock')";
         return ejecutarConsulta($sql);
     }
-
+    
 
     // Método para editar registros
-    public function editar(
-        $id_producto,
-        $nombre_producto,
-        $referencia,
-        $precio,
-        $peso,
-        $id_categoria,
-        $stock
-    ) {
+    public function editar($id_producto, $nombre_producto, $referencia, $precio, $peso, $id_categoria, $stock) 
+    {
         $sql = "UPDATE producto SET
         nombre_producto = '$nombre_producto',
         referencia = '$referencia', 
         precio = '$precio', 
         peso = '$peso', 
         id_categoria = '$id_categoria', 
-        stock = '$stock', 
+        stock = '$stock' 
         WHERE id_producto = '$id_producto'";
         return ejecutarConsulta($sql);
     }
@@ -69,7 +55,7 @@ class Producto
 
 
     //Método de buscar y mostrar producto
-    public function buscaProducto($id_producto)
+    public function buscarProducto($id_producto)
     {
         $sql = "SELECT * 
         FROM producto 

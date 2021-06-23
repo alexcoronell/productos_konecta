@@ -4,13 +4,13 @@ require_once "../modelos/Categoria.php";
 
 $categoria = new Categoria();
 
-$id_categoria = isset($_POST["iid_categoriad"]) ? limpiarCadena($_POST["id_categoria"]) : "";
+$id_categoria = isset($_POST["id_categoria"]) ? limpiarCadena($_POST["id_categoria"]) : "";
 $nombre_categoria = isset($_POST["nombre_categoria"]) ? limpiarCadena($_POST["nombre_categoria"]) : "";
 
 switch ($_GET["op"])
 {
     case 'guardaryeditar' :
-        if (empty($id))
+        if (empty($id_categoria))
         {
             $rspta = $categoria -> insertar($nombre_categoria);
             echo $rspta ? "Categoria registrada correctamente" : "Categoria no se pudo registrar";
@@ -24,7 +24,7 @@ switch ($_GET["op"])
 
 
     case 'mostrar':
-        $rspta = $categoria -> mostrar($id);
+        $rspta = $categoria -> mostrar($id_categoria);
         // Codificación del resultado usando Json
         echo json_encode($rspta);
     break;

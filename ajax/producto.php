@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 require_once "../modelos/Producto.php";
 
 $producto = new Producto();
@@ -15,7 +15,7 @@ $stock = isset($_POST["stock"]) ? limpiarCadena($_POST["stock"]) : "";
 
 switch ($_GET["op"]) {
     case 'guardaryeditar':
-        if (empty($id_categoria)) {
+        if (empty($id_producto)) {
             $rspta = $producto->insertar($nombre_producto, $referencia, $precio, $peso, $id_categoria, $stock);
             echo $rspta ? "Producto registrado correctamente" : "Producto no se pudo registrar";
         } else {

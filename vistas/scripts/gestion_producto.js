@@ -10,7 +10,6 @@ function init() {
         guardaryeditar(e);
     })
 
-    bootbox.alert('Soy Bootbox');
 }
 
 // Función para limpiar el formulario
@@ -31,6 +30,7 @@ function cancelarFormulario() {
     limpiar();
 }
 
+
 // Función para guardar o editar
 function guardaryeditar(e) {
     e.preventDefault(); // Evita que se ejecute la acción predeterminada del evento
@@ -47,15 +47,17 @@ function guardaryeditar(e) {
             bootbox.alert(datos);
             if (datos == "Producto registrado correctamente" || datos == "Producto actualizado correctamente") {
                 limpiar();
+                cargarCategorias();
             }
         }
     })
+    listar();
 }
 
 // Función para mostrar los datos en la tabla de reportes y en formulario de edición
-function mostrar(id) {
+function mostrar(id_producto) {
     $.post("../ajax/producto.php?op=mostrar", {
-        id: id
+        id_producto: id_producto
     }, function (data, status) {
         data = JSON.parse(data);
 
