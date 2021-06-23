@@ -3,7 +3,7 @@ require 'header.php';
 ?>
 
 <div class="container mt-4">
-    <h2 class="text-center">Agregar productos</h2>
+    <h2 class="text-center">Edición de productos</h2>
     <div class="row">
         <div class="col">
             Formulario de Búsqueda

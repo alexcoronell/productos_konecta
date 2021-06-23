@@ -1,13 +1,17 @@
 // Función que se ejecuta al inicio
 function init() {
 
+    console.log('Funciono init');
+
     limpiar();
+    cargarCategorias();
+
+    $.fn.selectpicker.Constructor.BootstrapVersion = '4';
+
 
     $("#formulario").on("submit", function (e) {
         guardaryeditar(e);
     })
-
-    cargarCategorias();
 }
 
 // Función para limpiar el formulario
@@ -56,13 +60,13 @@ function mostrar(id) {
     }, function (data, status) {
         data = JSON.parse(data);
 
-        $("#id_producto").val(data.id);
-        $('#nombre_producto').val(data.fo_compania);
+        $("#id_producto").val(data.id_producto);
+        $('#nombre_producto').val(data.nombre_producto);
         $('#id_categoria').selectpicker('refresh');
-        $('#referencia').val(data.nombre);
-        $('#precio').val(data.telefono);
-        $('#peso').val(data.direccion);
-        $('#stock').val(data.notas);
+        $('#referencia').val(data.referencia);
+        $('#precio').val(data.precio);
+        $('#peso').val(data.peso);
+        $('#stock').val(data.stock);
     })
 }
 
@@ -83,9 +87,11 @@ function cargaProductos() { // Carga los productos registrados en el sistema
 }
 
 function cargarCategorias() {
+    console.log('Funciono');
     $.post("../ajax/categoria.php?op=selectCategoria", function (r) {
         $('#id_categoria').html(r);
-        $('#id_categoria').selectpicker('refresch');
+        console.log(r);
+        $('#id_categoria').selectpicker('refresh');
     })
 }
 

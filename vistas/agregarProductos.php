@@ -31,7 +31,7 @@ require 'header.php';
                 <!-- Categoría -->
                 <div class="mb-3" id="categorias">
                 <label for="id_categoria" class="form-label">Categoria:</label>
-                <select name="id_categoria" id="id_categoria" class="form-control form-select" title="Seleccione..." required></select>
+                <select name="id_categoria" id="id_categoria" class="form-control selectpicker show-tick" data-live-search="true" showContent="true" title="Seleccione..." required></select>
                 </select>
                 </div>
                 <!-- Stock -->
@@ -50,4 +50,4 @@ require 'header.php';
 require 'footer.php';
 ?>
 
-<script src="scripts/gestion_producto.js"></script>
+<script src="./scripts/gestion_producto.js"></script>
