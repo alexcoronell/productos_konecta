@@ -43,7 +43,6 @@ function guardaryeditar(e) {
         success: function (datos) {
             bootbox.alert(datos);
             if (datos == "Producto registrado correctamente" || datos == "Producto actualizado correctamente") {
-                cargaSedes();
                 limpiar();
             }
         }
@@ -64,8 +63,6 @@ function mostrar(id) {
         $('#precio').val(data.telefono);
         $('#peso').val(data.direccion);
         $('#stock').val(data.notas);
-        // $('.grupoBusqueda').hide();
-        // $('.formularioEditActDesact').show();
     })
 }
 
@@ -88,7 +85,6 @@ function cargaProductos() { // Carga los productos registrados en el sistema
 function cargarCategorias() {
     $.post("../ajax/categoria.php?op=selectCategoria", function (r) {
         $('#id_categoria').html(r);
-        $("id_categoria").selectpicker();
         $('#id_categoria').selectpicker('refresch');
     })
 }
