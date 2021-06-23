@@ -55,7 +55,7 @@ switch ($_GET["op"])
 
         while ($reg = $rspta -> fetch_object())
         {
-            echo '<option value=' . $reg -> id_categoria . '>' . $reg -> nombre_categoria . '</option>';
+            echo '<option value=' . $reg -> id_categoria . '>' . $reg -> nombre_categoria . '</option>-';
         }
     break;
 

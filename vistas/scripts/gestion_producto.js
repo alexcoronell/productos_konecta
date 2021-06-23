@@ -1,22 +1,13 @@
 // Función que se ejecuta al inicio
 function init() {
 
+    limpiar();
+
     $("#formulario").on("submit", function (e) {
         guardaryeditar(e);
     })
 
-    // Carga de opciones en el select Categorias
-    $.post("../ajax/categoria.php?op=selectCategoria", function (r) {
-        console.log(r);
-        $('#id_categoria').html(r);
-        setTimeout(() => {
-            $('#id_categoria').selectpicker('refresh');
-        }, 5000);
-    })
-
-    // cargaProductos();
-
-    limpiar();
+    cargarCategorias();
 }
 
 // Función para limpiar el formulario
@@ -26,7 +17,8 @@ function limpiar() {
     $('#referencia').val("");
     $('#precio').val("");
     $('#peso').val("");
-    // $('#id_categoria').selectpicker('refresh');
+    $('#id_categoria').val("");
+    $('#id_categoria').selectpicker('refresh');
     $('#stock').val("");
 }
 
@@ -60,14 +52,14 @@ function guardaryeditar(e) {
 
 // Función para mostrar los datos en la tabla de reportes y en formulario de edición
 function mostrar(id) {
-    $.post("../ajax/produco.php?op=mostrar", {
+    $.post("../ajax/producto.php?op=mostrar", {
         id: id
     }, function (data, status) {
         data = JSON.parse(data);
 
         $("#id_producto").val(data.id);
         $('#nombre_producto').val(data.fo_compania);
-        // $('#id_categoria').selectpicker('refresh');
+        $('#id_categoria').selectpicker('refresh');
         $('#referencia').val(data.nombre);
         $('#precio').val(data.telefono);
         $('#peso').val(data.direccion);
@@ -89,14 +81,17 @@ function buscar() {
 function cargaProductos() { // Carga los productos registrados en el sistema
     $.post("../ajax/producto.php?op=selectProducto", function (r) {
         $('#buscarId').html(r);
-        // $('#buscarId').selectpicker('refresh');
+        $('#buscarId').selectpicker('refresh');
     })
 }
 
-function cancelar() {
-    $('.grupoBusqueda').show();
-    $('.formularioEditActDesact').hide();
-    limpiar()
+function cargarCategorias() {
+    $.post("../ajax/categoria.php?op=selectCategoria", function (r) {
+        $('#id_categoria').html(r);
+        $("id_categoria").selectpicker();
+        $('#id_categoria').selectpicker('refresch');
+    })
 }
+
 
 init();
