@@ -1,17 +1,16 @@
 // Función que se ejecuta al inicio
 function init() {
 
-    console.log('Funciono init');
+    $.fn.selectpicker.Constructor.BootstrapVersion = '4.7.0';
 
     limpiar();
     cargarCategorias();
 
-    $.fn.selectpicker.Constructor.BootstrapVersion = '4';
-
-
     $("#formulario").on("submit", function (e) {
         guardaryeditar(e);
     })
+
+    bootbox.alert('Soy Bootbox');
 }
 
 // Función para limpiar el formulario
@@ -87,10 +86,8 @@ function cargaProductos() { // Carga los productos registrados en el sistema
 }
 
 function cargarCategorias() {
-    console.log('Funciono');
     $.post("../ajax/categoria.php?op=selectCategoria", function (r) {
         $('#id_categoria').html(r);
-        console.log(r);
         $('#id_categoria').selectpicker('refresh');
     })
 }
