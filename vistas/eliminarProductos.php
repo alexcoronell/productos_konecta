@@ -8,7 +8,7 @@ require 'header.php';
 
         <div class="form-group row grupoBusqueda mt-3 col-12 w-50" id="grupoBusqueda">
             <label for="buscarId" class="form-label">Buscar Producto</span>:</label>
-            <select name="id_productoSearch" id="id_productoSearch" class="form-control form-select" title="Seleccione..." required></select>
+            <select name="id_productoSearch" id="id_productoSearch" class="form-control form-select" title="Seleccione..." data-live-search="true" required></select>
             <button type="button" class="btnBusqueda btn btn-primary mt-1" id="btnBusqueda" onclick="buscar()"><i class="fa fa-arrow-circle-o-up min992" aria-hidden="true" title="Cargar Información" alt="Cargar Información"></i>Cargar</button>
         </div>
         
