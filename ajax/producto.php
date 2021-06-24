@@ -66,4 +66,9 @@ switch ($_GET["op"]) {
                 echo '<option value=' . $reg -> id_producto . '>' . $reg -> nombre_producto . '</option>';
             }
         break;
+
+        case 'eliminar':
+            $rspta = $producto->eliminarProducto($id_producto);
+            echo $rspta ? "El producto se ha eliminado correctamente" : "El producto no se pudo eliminar";
+            break;
 }

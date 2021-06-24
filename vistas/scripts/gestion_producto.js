@@ -102,5 +102,21 @@ function cargarCategorias() {
     })
 }
 
+function eliminarProducto() {
+    id_producto = $('#id_producto').val();
+    bootbox.confirm("¿Estás seguro de eliminar el producto?", function(result){
+        if(result) {
+            $.post("../ajax/producto.php?op=eliminar", {
+                id_producto: id_producto
+            }, function (data, status) {
+                bootbox.alert(data);
+                if (data == "El producto se ha eliminado correctamente") {
+                    cargaProductos();
+                }
+            })
+        }
+    })
+}
+
 
 init();

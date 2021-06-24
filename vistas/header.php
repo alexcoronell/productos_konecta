@@ -59,6 +59,9 @@ if (strlen(session_id()) < 1)
           <a class="nav-link" href="edicionProductos.php">Edición de Productos</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="eliminarProductos.php">Eliminar Productos</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="categorias.php">Categorías</a>
         </li>
       </ul>

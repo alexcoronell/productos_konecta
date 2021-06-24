@@ -69,4 +69,11 @@ class Producto
         return ejecutarConsultaSimpleFila($sql);
     }
 
+    public function eliminarProducto($id_producto)
+    {
+        $sql = "DELETE FROM producto
+        WHERE id_producto = $id_producto";
+        return ejecutarConsulta($sql);
+    }
+
 }
