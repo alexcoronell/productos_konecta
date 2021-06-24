@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 23-06-2021 a las 19:20:52
+-- Tiempo de generación: 24-06-2021 a las 12:35:09
 -- Versión del servidor: 10.3.29-MariaDB-0ubuntu0.20.04.1
 -- Versión de PHP: 7.4.3
 
@@ -42,7 +42,8 @@ INSERT INTO `categoria` (`id_categoria`, `nombre_categoria`) VALUES
 (12, 'Neveras'),
 (13, 'Lavadoras'),
 (14, 'Iluminación'),
-(15, 'Artículos Deportivos');
+(15, 'Artículos Deportivos'),
+(16, 'Computación');
 
 -- --------------------------------------------------------
 
@@ -67,8 +68,7 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id_producto`, `nombre_producto`, `referencia`, `precio`, `peso`, `id_categoria`, `stock`, `fecha_creacion`, `fecha_modificacion`) VALUES
-(1, 'Celular Motorola', 123456, 650000, 11, 10, 45, '2021-06-23 22:44:43', '2021-06-23 22:44:43'),
-(2, 'Smart TV Samsung', 1234568, 1500000, 11, 10, 34, '2021-06-23 22:45:53', '2021-06-23 22:54:07');
+(1, 'Celular Motorola', 898989, 1320000, 11, 10, 21, '2021-06-24 16:33:00', '2021-06-24 16:33:00');
 
 --
 -- Índices para tablas volcadas
@@ -96,7 +96,13 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT de la tabla `producto`
+--
+ALTER TABLE `producto`
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
