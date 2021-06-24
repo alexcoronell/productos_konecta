@@ -50,6 +50,14 @@ class Categoria
          $sql = "SELECT * FROM categoria";
          return ejecutarConsulta($sql);
      }
+
+     public function eliminarCategoria($id_categoria)
+    {
+        $sql = "DELETE FROM categoria
+        WHERE id_categoria = $id_categoria
+        LIMIT 1";
+        return ejecutarConsulta($sql);
+    }
 }
 
 ?>

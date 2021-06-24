@@ -59,6 +59,11 @@ switch ($_GET["op"])
         }
     break;
 
+    case 'eliminar':
+        $rspta = $categoria->eliminarCategoria($id_categoria);
+        echo $rspta ? "La categoría se ha eliminado correctamente" : "La categoria no se pudo eliminar";
+    break;
+
 }
 
 ?>

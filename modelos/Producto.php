@@ -72,7 +72,8 @@ class Producto
     public function eliminarProducto($id_producto)
     {
         $sql = "DELETE FROM producto
-        WHERE id_producto = $id_producto";
+        WHERE id_producto = $id_producto
+        LIMIT 1";
         return ejecutarConsulta($sql);
     }
 

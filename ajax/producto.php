@@ -70,5 +70,5 @@ switch ($_GET["op"]) {
         case 'eliminar':
             $rspta = $producto->eliminarProducto($id_producto);
             echo $rspta ? "El producto se ha eliminado correctamente" : "El producto no se pudo eliminar";
-            break;
+        break;
 }

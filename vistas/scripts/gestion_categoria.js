@@ -1,6 +1,8 @@
 // Función que se ejecuta al inicio
 function init() {
 
+    $.fn.selectpicker.Constructor.BootstrapVersion = '4.7.0';
+    
     listar();
 
     $("#formulario").on("submit", function (e) {
@@ -8,6 +10,7 @@ function init() {
     })
 
     limpiar();
+    cargarCategorias();
 }
 
 // Función para limpiar el formulario
@@ -40,34 +43,41 @@ function guardaryeditar(e) {
                 limpiar();
                 $('.grupoBusqueda').show();
                 $('.formularioEditActDesact').hide();
-                cargarCategorias();
+            }
+            if(datos == "Categoria actualizada correctamente") {
+                mostrarEditar();
+                
             }
         }
     })
     limpiar();
     listar();
+    cargarCategorias();
 }
 
 // Función para mostrar los datos en la tabla de reportes y en formulario de edición
-function mostrar(id) {
+function mostrar(id_categoria) {
     $.post("../ajax/categoria.php?op=mostrar", {
-        id: id
+        id_categoria: id_categoria
     }, function (data, status) {
         data = JSON.parse(data);
-
+        console.log(data);
         $("#id_categoria").val(data.id_categoria);
         $('#nombre_categoria').val(data.nombre_categoria);
-        // $('.grupoBusqueda').hide();
-        // $('.formularioEditActDesact').show();
+        $('.grupoBusqueda').fadeOut();
+        setTimeout(function() {
+            $('#formulario').fadeIn();
+        }, 300)
+
     })
 }
 
 
 // Función para buscar en el formulario de edición de Categorias
-function buscar() {
-    id_Buscar = $("#buscarId").val();
-    mostrar(id_Buscar);
-    $('#buscarId').val("");
+function buscarEditar() {
+    id_categoriaSearch = $("#id_categoriaSearch").val();
+    mostrar(id_categoriaSearch);
+    $('#id_categoriaSearch').val("");
 }
 
 // Función para listar los registros en la tabla
@@ -125,6 +135,82 @@ function listar() {
             [0, "desc"]
         ] // Ordenación (Columna, Orden)
     }).DataTable();
+}
+
+function cargarCategorias() {
+    $.post("../ajax/categoria.php?op=selectCategoria", function (r) {
+        $('#id_categoriaSearch').html(r);
+        $('#id_categoriaSearch').selectpicker('refresh');
+        $('#id_categoriaSearchEliminar').html(r);
+        $('#id_categoriaSearchEliminar').selectpicker('refresh');
+    })
+}
+
+function mostrarAgregar() {
+    $('#grupoBusqueda').fadeOut()
+    limpiar()
+    setTimeout(function() {
+        $('#btnGuardar').show();
+        $('#btnEliminar').hide();
+        $('#btnCancelar').hide();
+        $('#btnLimpiar').show();
+        $('#titulo').text('Agregar Categoría');
+        $('#formulario').fadeIn()
+        $('#nombre_categoria').prop('disabled', false);
+    }, 300);
+}
+function mostrarEditar() {
+    $('#formulario').fadeOut()
+    
+    setTimeout(function() {
+        $('#btnGuardar').show();
+        $('#btnEliminar').hide();
+        $('#btnLimpiar').hide();
+        $('#btnCancelar').show();
+        $('#titulo').text('Editar Categoría');
+        $('#grupoBusqueda').fadeIn()
+        $('#nombre_categoria').prop('disabled', false);
+    }, 300);
+}
+function mostrarEliminar() {
+    $('#formulario').fadeOut()
+    setTimeout(function() {
+        $('#btnGuardar').hide();
+        $('#btnEliminar').show();
+        $('#btnLimpiar').hide();
+        $('#btnCancelar').show();
+        $('#titulo').text('Eliminar Categoría');
+        $('#grupoBusqueda').fadeIn()
+        $('#nombre_categoria').prop('disabled', true);
+    }, 300);
+}
+
+function cancelar() {
+    limpiar();
+    cargarCategorias();
+    if($('#titulo').text() == "Editar Categoría") {
+        mostrarEditar();
+    } else {
+        mostrarEliminar();
+    }
+}
+
+function eliminarProducto() {
+    id_categoria = $('#id_categoria').val();
+    bootbox.confirm("¿Estás seguro de eliminar la categoría?", function(result){
+        if(result) {
+            $.post("../ajax/categoria.php?op=eliminar", {
+                id_categoria: id_categoria
+            }, function (data, status) {
+                bootbox.alert(data);
+                if (data == "La categoría se ha eliminado correctamente") {
+                    cargarCategorias();
+                    mostrarEliminar();
+                    listar();
+                }
+            })
+        }
+    })
 }
 
 init();
