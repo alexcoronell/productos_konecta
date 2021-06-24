@@ -52,6 +52,12 @@ class Producto
         return ejecutarConsulta($sql);
     }
 
+    // Metodo para listar las Categorías
+    public function select()
+    {
+        $sql = "SELECT * FROM producto";
+        return ejecutarConsulta($sql);
+    }
 
 
     //Método de buscar y mostrar producto

@@ -13,8 +13,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 
 <!-- Font Awesome 4.7 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.0-10/js/all.js" integrity="sha512-Cr2j03BU8uvGH3c27hfFIs78leIZaq8ltraqr7VDilMQ/QQczRxl6bg6/pKNT4OSdKGlkJ5zrsn1kvQCpn7HCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <!-- DATATABLES -->
 <script src="../public/DataTables/js/jquery.dataTables.min.js"></script>

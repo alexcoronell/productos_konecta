@@ -59,7 +59,7 @@ switch ($_GET["op"]) {
         break;
 
         case "selectProducto":
-            $rspta = $categoria -> select();
+            $rspta = $producto -> select();
     
             while ($reg = $rspta -> fetch_object())
             {
